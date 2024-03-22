@@ -1,5 +1,9 @@
 class Item < ApplicationRecord
     has_one_attached :image
+    validates :name, presence: true
+    validates :rarity, presence: true
+    validates :price, presence: true, numericality: true
+    validates :stock, presence: true, numericality: { only_integer: true }
 
     def self.ransackable_attributes(auth_object = nil)
         ["name", "stock", "price", "rarity"]
