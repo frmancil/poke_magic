@@ -80,3 +80,5 @@ gem 'draper'
 gem 'pundit'
 
 gem 'sassc-rails'
+
+gem "image_processing", ">= 1.2"
