@@ -1,5 +1,5 @@
 class Order < ApplicationRecord
-    has_many :order_statuses
+    belongs_to :order_status
     belongs_to :member
     validates :order_number, presence: true, numericality: { only_integer: true }
     validates :is_completed, presence: true, inclusion: [true, false]
