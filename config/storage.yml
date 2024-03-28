@@ -2,9 +2,9 @@ test:
   service: Disk
   root: <%= Rails.root.join("tmp/storage") %>
 
-local:
-  service: Disk
-  root: <%= Rails.root.join("storage") %>
+#local:
+#  service: Disk
+#  root: <%= Rails.root.join("storage") %>
 
 # Use bin/rails credentials:edit to set the AWS secrets (as aws:access_key_id|secret_access_key)
 # amazon:
@@ -15,11 +15,22 @@ local:
 #   bucket: your_own_bucket-<%= Rails.env %>
 
 # Remember not to checkin your GCS keyfile to a repository
-# google:
-#   service: GCS
-#   project: your_project
-#   credentials: <%= Rails.root.join("path/to/gcs.keyfile") %>
-#   bucket: your_own_bucket-<%= Rails.env %>
+google:
+  service: GCS
+  credentials:
+    type: "service_account"
+    project_id: <%= ENV['GCS_PROJECT_ID'] %>
+    private_key_id: <%= ENV['GCS_PRIVATE_KEY_ID'] %>
+    private_key: "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQDa2jyHPDnzB0LJ\nPqQnSwtjpmL0rRlh9W+hpaSoSl/5Ptn/tG/XDLsN26D78IfGjYIT4eIdXnDjlh25\nr3zEcgouo05nMNZ72AUcYEV9sp8SQydI5ctAwg7wKQMSjsx4dexZnSw6z1XCDseX\n3t3e+B4hoMeuCECbZPEvbQPkIUb5UC70WvovLcYirUbEA9DZbCo6pW00rN2fqpFh\nIvk7r+ChYIhaHs5totLkVfNcKvPF5+csyuHDP48k9Kth9estIpOnx8xx5E7DVGeV\nR3IGA8D3hJVZN2PZc/lMPqPVL3wLB89C3NVteKCGj1ALY1FFd/s+syTiu3+O/664\nOJWbzf1HAgMBAAECggEAAUCUbhWrIzfcavhfyhXE1+og0NOYvJXB8MPY4FmkmPGC\nH9NxfGKHQ3oJPsfOjxVKNEDroU1kCflW7DQT26/nXQL0NOTzpTvEM7hdTW3TOTCH\nLgSamCFEIp2pdda5Vssd8hlTIncDP5wEClttG5SB36Fi4x0K+ZinRKU0C38hP9Xx\n58eUFWofVKJeMHRe1Kp5ojgAsLF+ZdXCTTDGJgGnka9d6YbJj8FlEYRu6GG57AcF\nG7x8mifw/+wxbaFP4hjpF+14uWliT69upqU14idj7pwK+2UWdhWtL4jvGNlSpKEC\n/bwMjvpc+NwRRWA8H2YS2h1i764DWWEgWLAPDM/CsQKBgQD9WhZSMHk8wS0/Hqbc\ncpHpCwbxoO4rPz+TSDAd/tGNwfztzMGnYc4mqDMt2IO/SrlwRMjk3s/VDCP8k6Hf\nZAKOATngZ9+QzrUmfXeExa7yXhBgCYe55rO9RrG1Rk8pNqvx1DjiYLtnuhSlVA5D\nQoYjcDNRkNuncyPUF6ikJvYRGQKBgQDdI9YoV0+tC7Ceou7ZwMF5X6drZpA2luyb\nJS9h33pC8H/eNYFGFA10UPS+IZlYJeNHSTkNhSy4JEn1Pce/uu4OosFcE4B+a5TI\n5AYt2xwWR40QJf7zjvzOppQCgO+wY0WYp/T8lrD3yxY5xgFt1cEz1odMyg7tr6xB\nJ3QiA6ZtXwKBgQCJDbv3eEuNpz8P30gLB1uRgyqdeh59fLiqtyl4gIniMufdyJ+W\nKd24odMV4QPcbtMEPeGjljk+GlQ5Za/yxgpvwZAKqoaRspDioosOY1ZxvJsFKQKo\neXoQUXb/Bmr6c53us4yWQhf/U/WpPmB82DbyYtcQL9nzquDd8nKDYqRIuQKBgQCa\nKtatbxk74a9zGNH9evUm4bm9FVaqyBMRoh3jVMJOko4CYzjJm0c59Qp61r+qBVfq\npbChrVtc0OfCkhyEnRRDndHBmFL3T5b9aoKoS13MZnuAa4zPTbsPcnAzQqJXTQ4C\n++y+f2vGhI3tHw51/RRhSEkxDpjTuaoUDiZXZEYNbwKBgQCstOhk6/Hexa71OKXN\nJdtlYSX6WMArIzclTe9baMGYGf016npD2cQ3ARHPHKooSRC7UOQozHU/knENBSzw\nSSd6HqqbU9vy26FS0OqGi1lX3meqQ9kGOuJYtLiWE7MSlmindKDgzKVRIa8grK3A\njTh7ki18pfa/kTtPcseUOXTu1w==\n-----END PRIVATE KEY-----\n"
+    client_email: <%= ENV['GCS_CLIENT_EMAIL'] %>
+    client_id: <%= ENV['GCS_CLIENT_ID'] %>
+    auth_uri: "https://accounts.google.com/o/oauth2/auth"
+    token_uri: "https://oauth2.googleapis.com/token"
+    auth_provider_x509_cert_url: "https://www.googleapis.com/oauth2/v1/certs"
+    client_x509_cert_url: <%= ENV['GCS_CLIENT_x509_CERT_URL'] %>
+    universe_domain: "googleapis.com"
+  bucket: <%= ENV['GCS_BUCKET'] %>
+  project: <%= ENV['GCS_PROJECT'] %>
 
 # Use bin/rails credentials:edit to set the Azure Storage secret (as azure_storage:storage_access_key)
 # microsoft:
