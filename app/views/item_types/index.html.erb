@@ -1,0 +1,7 @@
+<h1>Categories</h1>
+
+<% @item_types.each do |item_type| %>
+    <ul>
+        <%= link_to item_type.name, item_type %>
+    </ul>
+<% end %>

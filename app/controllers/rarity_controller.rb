@@ -1,0 +1,2 @@
+class RarityController < ApplicationController
+end
