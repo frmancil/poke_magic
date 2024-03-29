@@ -5,16 +5,16 @@ ActiveAdmin.register Item do
   remove_filter :rarity
   remove_filter :game_type
 
-  permit_params :name, :stock, :price, :rarity, :item_type, :game_type, :image
+  permit_params :name, :stock, :price, :rarity_id, :item_type_id, :game_type_id, :image
 
   form do |f|
     f.inputs do
       f.input :name
       f.input :stock
       f.input :price
-      f.input :rarity, :label => "Rarity", as: :select, collection: Rarity.all.collect {|rarity| [rarity.name, rarity.id] }, include_blank: true
-      f.input :item_type, :label => "ItemType", as: :select, collection: ItemType.all.collect {|item_type| [item_type.name, item_type.id] }, include_blank: true
-      f.input :game_type, :label => "GameType", as: :select, collection: GameType.all.collect {|game_type| [game_type.name, game_type.id] }, include_blank: true
+      f.input :rarity_id, :label => "Rarity", as: :select, collection: Rarity.all.collect {|rarity| [rarity.name, rarity.id] }, include_blank: true
+      f.input :item_type_id, :label => "ItemType", as: :select, collection: ItemType.all.collect {|item_type| [item_type.name, item_type.id] }, include_blank: true
+      f.input :game_type_id, :label => "GameType", as: :select, collection: GameType.all.collect {|game_type| [game_type.name, game_type.id] }, include_blank: true
       f.input :image, as: :file
     end
     f.actions
