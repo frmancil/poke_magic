@@ -88,3 +88,5 @@ gem 'google-cloud-storage'
 gem 'dotenv-rails', groups: [:development, :test]
 
 gem 'kaminari'
+
+gem 'nokogiri'
