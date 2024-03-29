@@ -43,18 +43,54 @@ end
 #new_member = Member.new(full_name:'test', username:'test', password:'test', address:'test', store_credit_available: 0)
 #new_member.save
 
-pokemon_cards = fetch("https://api.pokemontcg.io/v2/cards?pageSize=2")
+#pokemon_cards = fetch("https://api.pokemontcg.io/v2/cards?pageSize=100")
 
-pokemon_cards['data'].each do |pokemon|
-    new_item = Item.new
-    new_item.name = pokemon['name']
-    new_item.stock = 1
-    new_item.price = pokemon['cardmarket']['prices']['averageSellPrice']
-    new_item.item_type = ItemType.find_or_create_by(name: 'Card')
-    new_item.rarity = Rarity.find_or_create_by(name: pokemon['rarity'])
-    new_item.game_type = GameType.find_or_create_by(name: 'Pokemon TCG')
-    new_item.save
+#pokemon_cards['data'].each do |pokemon|
+#    new_item = Item.new
+#    new_item.name = pokemon['name']
+#    new_item.stock = 1
+#    new_item.price = pokemon['cardmarket']['prices']['averageSellPrice']
+#    new_item.item_type = ItemType.find_or_create_by(name: 'Card')
+#    new_item.rarity = Rarity.find_or_create_by(name: pokemon['rarity'])
+#    new_item.game_type = GameType.find_or_create_by(name: 'Pokemon TCG')
+#    new_item.save
 
-    file = URI.open(pokemon['images']['large'])
-    new_item.image.attach(io: file, filename: 'image.png')
-end
+#    file = URI.open(pokemon['images']['large'])
+#    new_item.image.attach(io: file, filename: 'image.png')
+#end
+
+#new_item = Item.new
+#new_item.name = 'SCARLET & VIOLET - BASE SET BOOSTER PACK'
+#new_item.stock = 1
+#new_item.price = 5.99
+#new_item.item_type = ItemType.find_or_create_by(name: 'Booster')
+#new_item.game_type = GameType.find_or_create_by(name: 'Pokemon TCG')
+#new_item.rarity = Rarity.find_or_create_by(name: 'Common')
+#new_item.save
+
+#file = URI.open("https://crystal-cdn1.crystalcommerce.com/photos/7529047/large/boosterpack.jpg")
+#new_item.image.attach(io: file, filename: 'image.png') 
+
+#new_item = Item.new
+#new_item.name = 'ZAPDOS EX DELUXE BATTLE DECK'
+#new_item.stock = 1
+#new_item.price = 26.99
+#new_item.item_type = ItemType.find_or_create_by(name: 'Deck')
+#new_item.game_type = GameType.find_or_create_by(name: 'Pokemon TCG')
+#new_item.rarity = Rarity.find_or_create_by(name: 'Common')
+#new_item.save
+
+#file = URI.open("https://crystal-cdn4.crystalcommerce.com/photos/7922672/large/Zapdos_ex_Deluxe_Battle_Deck.jpg")
+#new_item.image.attach(io: file, filename: 'image.png') 
+
+#new_item = Item.new
+#new_item.name = 'CROWN ZENITH PIKACHU VMAX SPECIAL COLLECTION'
+#new_item.stock = 1
+#new_item.price = 26.99
+#new_item.item_type = ItemType.find_or_create_by(name: 'Set')
+#new_item.game_type = GameType.find_or_create_by(name: 'Pokemon TCG')
+#new_item.rarity = Rarity.find_or_create_by(name: 'Common')
+#new_item.save
+
+#file = URI.open("https://crystal-cdn3.crystalcommerce.com/photos/7184015/large/Pikachu_VMAX_Special_Collection.jpg")
+#new_item.image.attach(io: file, filename: 'image.png') 
