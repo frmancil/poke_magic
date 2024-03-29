@@ -1,6 +1,6 @@
 require "test_helper"
 
-class GameEditionTest < ActiveSupport::TestCase
+class RarityTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

@@ -1,8 +1,11 @@
 ActiveAdmin.register Item do
   remove_filter :image_attachment
   remove_filter :image_blob
+  remove_filter :item_type
+  remove_filter :rarity
+  remove_filter :game_type
 
-  permit_params :name, :stock, :price, :rarity, :image
+  permit_params :name, :stock, :price, :rarity, :item_type, :image
 
   form do |f|
     f.inputs do
@@ -10,6 +13,7 @@ ActiveAdmin.register Item do
       f.input :stock
       f.input :price
       f.input :rarity
+      f.input :item_type
       f.input :image, as: :file
     end
     f.actions
@@ -21,6 +25,7 @@ ActiveAdmin.register Item do
       row :stock
       row :price
       row :rarity
+      row :item_type
       row :image do |ad|
         link_to ad.image.filename, rails_blob_path(ad.image, disposition: 'attachment') if ad.image.attached?
       end
