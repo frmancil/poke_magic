@@ -1,4 +1,6 @@
 class Order < ApplicationRecord
+    belongs_to :order_status
+    belongs_to :member
     validates :order_number, presence: true, numericality: { only_integer: true }
     validates :is_completed, presence: true, inclusion: [true, false]
     validates :price, presence: true, numericality: true
