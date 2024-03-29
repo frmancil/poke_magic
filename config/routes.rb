@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   get '/', to: 'item#index'
+  get '/search', to: 'item#search'
   get '/item_types', to: 'item_types#index'
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
