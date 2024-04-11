@@ -60,43 +60,6 @@ end
 #    new_item.image.attach(io: file, filename: 'image.png')
 #end
 
-#new_item = Item.new
-#new_item.name = 'SCARLET & VIOLET - BASE SET BOOSTER PACK'
-#new_item.stock = 1
-#new_item.price = 5.99
-#new_item.item_type = ItemType.find_or_create_by(name: 'Booster')
-#new_item.game_type = GameType.find_or_create_by(name: 'Pokemon TCG')
-#new_item.rarity = Rarity.find_or_create_by(name: 'Common')
-#new_item.save
-
-#file = URI.open("https://crystal-cdn1.crystalcommerce.com/photos/7529047/large/boosterpack.jpg")
-#new_item.image.attach(io: file, filename: 'image.png') 
-
-#new_item = Item.new
-#new_item.name = 'ZAPDOS EX DELUXE BATTLE DECK'
-#new_item.stock = 1
-#new_item.price = 26.99
-#new_item.item_type = ItemType.find_or_create_by(name: 'Deck')
-#new_item.game_type = GameType.find_or_create_by(name: 'Pokemon TCG')
-#new_item.rarity = Rarity.find_or_create_by(name: 'Common')
-#new_item.save
-
-#file = URI.open("https://crystal-cdn4.crystalcommerce.com/photos/7922672/large/Zapdos_ex_Deluxe_Battle_Deck.jpg")
-#new_item.image.attach(io: file, filename: 'image.png') 
-
-#new_item = Item.new
-#new_item.name = 'CROWN ZENITH PIKACHU VMAX SPECIAL COLLECTION'
-#new_item.stock = 1
-#new_item.price = 26.99
-#new_item.item_type = ItemType.find_or_create_by(name: 'Set')
-#new_item.game_type = GameType.find_or_create_by(name: 'Pokemon TCG')
-#new_item.rarity = Rarity.find_or_create_by(name: 'Common')
-#new_item.save
-
-#file = URI.open("https://crystal-cdn3.crystalcommerce.com/photos/7184015/large/Pikachu_VMAX_Special_Collection.jpg")
-#new_item.image.attach(io: file, filename: 'image.png') 
-
-
 ####BOOSTER PACK SCRAPPING########
 new_item = Item.new
 new_item.stock = 1
