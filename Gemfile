@@ -90,3 +90,5 @@ gem 'dotenv-rails', groups: [:development, :test]
 gem 'kaminari'
 
 gem 'nokogiri'
+
+gem 'stripe'
