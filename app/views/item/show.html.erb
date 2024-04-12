@@ -9,3 +9,4 @@
 <p>Price: <%= @item.price %></p>
 <p>Stock: <%= @item.stock %></p>
 <p>Rarity: <%= @item.rarity.name %></p>
+<p><%= button_to 'add to cart', add_to_cart_path(@item.id), data: { turbo_method: "post" } %></p>

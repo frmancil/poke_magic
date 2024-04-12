@@ -1,10 +1,21 @@
 class ItemController < ApplicationController
+    before_action :initialize_session
+
     def index
         @items = Item.page(params[:page])
     end
 
     def show
         @item = Item.find(params[:id])
+    end
+
+    def add_to_cart
+        session[:cart] << params[:id]
+        redirect_back(fallback_location: index)
+    end
+
+    def initialize_session
+        session[:cart] ||= []
     end
 
     def search
