@@ -2,7 +2,7 @@
 
 <details>
     <summary>Cart</summary>
-    <% if @cart.empty? %>
+    <% if @session_cart.empty? %>
         <p>Cart is empty</p>
     <% else %>
         <ul>
@@ -28,7 +28,7 @@
     <ul>
         <%= link_to item.name, item %>
         <%= image_tag item.image %>
-        <% if @cart.include?(item) %>
+        <% if @session_cart.include?(item) %>
             <p><%= item.item_type.name %> is in your shopping cart</p>
             <p><%= button_to 'remove from cart', remove_from_cart_path(item.id), method: :delete %></p>
         <% end %>
