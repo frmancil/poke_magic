@@ -5,4 +5,5 @@ class Cart < ApplicationRecord
     def total
         cart_items.to_a.sum { |item| item.total}
     end
+
 end

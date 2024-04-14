@@ -9,10 +9,14 @@
 <p>Price: <%= @item.price %></p>
 <p>Stock: <%= @item.stock %></p>
 <p>Rarity: <%= @item.rarity.name %></p>
-<%= form_with(url: cart_add_path) do |f| %>
-    <%= f.hidden_field :id, value: @item.id %>
-    <%= f.number_field :quantity, value: 0, min:1 %>
-    <%= f.submit "Add to cart" %>
-<% end %>
 
-<p><%= button_to 'add to cart', add_to_cart_path(@item.id), data: { turbo_method: "post" } %></p>
+<% if member_signed_in? %>
+<h1>Add products to your shopping cart, <%= current_member.username %>
+    <%= form_with(url: cart_add_path) do |f| %>
+        <%= f.hidden_field :id, value: @item.id %>
+        <%= f.number_field :quantity, value: 0, min: 1, max: @item.stock %>
+        <%= f.submit "Add to cart" %>
+    <% end %>
+<% else %>
+        <p>Sign up if you want to order a product</p>
+<% end %>
