@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
+  get '/cart', to: 'cart#show'
+  post 'cart/add'
+  post 'cart/remove'
   get '/', to: 'item#index'
   get '/search', to: 'item#search'
   get '/item_types', to: 'item_types#index'

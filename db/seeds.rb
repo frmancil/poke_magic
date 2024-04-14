@@ -167,3 +167,99 @@ puts image
 
 file = URI.open(image)
 new_item.image.attach(io: file, filename: 'image.png') 
+
+new_province = Province.new
+new_province.name = 'Alberta'
+new_province.shortname = 'AB'
+new_province.GST = 0
+new_province.PST = 5
+new_province.HST = 0
+new_province.save
+
+new_province = Province.new
+new_province.name = 'British Columbia'
+new_province.shortname = 'BC'
+new_province.GST = 7
+new_province.PST = 5
+new_province.HST = 0
+new_province.save
+
+new_province = Province.new
+new_province.name = 'Manitoba'
+new_province.shortname = 'MB'
+new_province.GST = 7
+new_province.PST = 5
+new_province.HST = 0
+new_province.save
+
+new_province = Province.new
+new_province.name = 'New Brunswick'
+new_province.shortname = 'NB'
+new_province.GST = 0
+new_province.PST = 0
+new_province.HST = 15
+new_province.save
+
+new_province = Province.new
+new_province.name = 'Newfoundland and Labrador'
+new_province.shortname = 'NL'
+new_province.GST = 0
+new_province.PST = 0
+new_province.HST = 15
+new_province.save
+
+new_province = Province.new
+new_province.name = 'Nova Scotia'
+new_province.shortname = 'NS'
+new_province.GST = 0
+new_province.PST = 0
+new_province.HST = 15
+new_province.save
+
+new_province = Province.new
+new_province.name = 'Nunavut'
+new_province.shortname = 'NU'
+new_province.GST = 0
+new_province.PST = 5
+new_province.HST = 0
+new_province.save
+
+new_province = Province.new
+new_province.name = 'Ontario'
+new_province.shortname = 'ON'
+new_province.GST = 0
+new_province.PST = 0
+new_province.HST = 13
+new_province.save
+
+new_province = Province.new
+new_province.name = 'Prince Edward Island'
+new_province.shortname = 'PE'
+new_province.GST = 0
+new_province.PST = 0
+new_province.HST = 15
+new_province.save
+
+new_province = Province.new
+new_province.name = 'Quebec'
+new_province.shortname = 'QC'
+new_province.GST = 9.975
+new_province.PST = 5
+new_province.HST = 0
+new_province.save
+
+new_province = Province.new
+new_province.name = 'Saskatchewan'
+new_province.shortname = 'SK'
+new_province.GST = 6
+new_province.PST = 5
+new_province.HST = 0
+new_province.save
+
+new_province = Province.new
+new_province.name = 'Yukon'
+new_province.shortname = 'YT'
+new_province.GST = 0
+new_province.PST = 5
+new_province.HST = 0
+new_province.save
