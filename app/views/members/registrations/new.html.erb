@@ -19,8 +19,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :province %><br />
-    <%= f.text_field :province %>
+    <%= f.collection_select :province_id, Province.all, :id, :shortname, include_blank: true %>
   </div>
 
   <div class="field">
