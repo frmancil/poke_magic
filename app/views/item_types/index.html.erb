@@ -1,7 +1,22 @@
-<h1>Categories</h1>
+<div class="container">
+    <div class="pagetitle">
+        <h1 class="display-3">Categories</h1>
+        <%= link_to "Back", "/", style:"color:white" %>
+    </div>
 
-<% @item_types.each do |item_type| %>
-    <ul>
-        <%= link_to item_type.name, item_type %>
-    </ul>
-<% end %>
+    <div class="container text-center products-wrap">
+        <div class="row products-content">
+            <div class="col-sm-3 productdetails">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <% @item_types.each do |item_type| %>
+                            <ul>
+                                <%= link_to item_type.name, item_type %>
+                            </ul>
+                        <% end %>
+                    </div>
+               </div>
+            </div>
+        </div>
+    </div> 
+
