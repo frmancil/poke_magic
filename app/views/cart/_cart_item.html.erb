@@ -1,19 +1,29 @@
 <% @cart.cart_items.each do |item_in_cart| %>
     <% item = item_in_cart.item %>
     <div id="<%= "cart-#{item.id}" %>">
-    <p>Product: <%= item.item_type.name %></p>
-    <p>Price: <%= item.price %></p>
-    <p>Stock: <%= item.stock %></p>
-    <p>Rarity: <%= item.rarity.name %></p>
-    <%= form_with(url: cart_add_path) do |f| %>
-        <%= f.hidden_field :id, value: item.id %>
-        <%= f.number_field :quantity, value: item_in_cart.quantity, min: 1, max: item.stock %>
-        <%= f.submit "Add to cart" %>
-    <% end %>
-    <%= form_with(url: cart_remove_path) do |f| %>
-        <%= f.hidden_field :id, value: item_in_cart.id %>
-        <%= f.submit "X" %>
-    <% end %>
-    <%= item_in_cart.total %>
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-sm-12 productdetails">
+                    <div class="row">
+                        <div class="col-sm-10">
+                            <p>Product: <%= item.name %> <%= item.item_type.name %></p>
+                            <p>Price: <%= item.price %></p>
+                            <p>Stock: <%= item.stock %></p>
+                            <p>Rarity: <%= item.rarity.name %></p>
+                            <%= form_with(url: cart_add_path) do |f| %>
+                                <%= f.hidden_field :id, value: item.id %>
+                                <%= f.number_field :quantity, value: item_in_cart.quantity, min:1, max: item.stock, class: 'searchbar' %>
+                                <%= f.submit "Add to cart", class:"btn btn-outline-success", style:"margin-top:5px" %>
+                            <% end %>
+                            <%= form_with(url: cart_remove_path) do |f| %>
+                                <%= f.hidden_field :id, value: item_in_cart.id %>
+                                <%= f.submit "Delete from cart", class:"btn btn-outline-success", style:"margin-top:5px" %>
+                            <% end %>
+                            <p>Cart Total: <%= item_in_cart.total %></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 <% end %>
