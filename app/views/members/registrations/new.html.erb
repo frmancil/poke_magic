@@ -1,49 +1,66 @@
-<h2>Sign up</h2>
+<div class="container">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "members/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :full_name %><br />
-    <%= f.text_field :full_name, autofocus: true %>
+  <div class="pagetitle">
+    <h1 class="display-3">Sign Up</h1>
+    <%= link_to "Back", "/", style:"color:white" %>
   </div>
 
-  <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username %>
-  </div>
+</div>
 
-  <div class="field">
-    <%= f.label :address %><br />
-    <%= f.text_field :address %>
+<div class="container text-center">
+  <div class="row">
+      <div class="col-sm-12 productdetails">
+          <div class="row">
+              <div class="col-sm-10">
+              <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                <%= render "members/shared/error_messages", resource: resource %>
+              
+                <div class="field">
+                  <%= f.label :full_name %><br />
+                  <%= f.text_field :full_name, autofocus: true %>
+                </div>
+              
+                <div class="field">
+                  <%= f.label :username %><br />
+                  <%= f.text_field :username %>
+                </div>
+              
+                <div class="field">
+                  <%= f.label :address %><br />
+                  <%= f.text_field :address %>
+                </div>
+              
+                <div class="field">
+                  <%= f.label :Province %><br />
+                  <%= f.collection_select :province_id, Province.all, :id, :shortname, include_blank: true %>
+                </div>
+              
+                <div class="field">
+                  <%= f.label :email %><br />
+                  <%= f.email_field :email, autocomplete: "email" %>
+                </div>
+              
+                <div class="field">
+                  <%= f.label :password %>
+                  <% if @minimum_password_length %>
+                  <em>(<%= @minimum_password_length %> characters minimum)</em>
+                  <% end %><br />
+                  <%= f.password_field :password, autocomplete: "new-password" %>
+                </div>
+              
+                <div class="field">
+                  <%= f.label :password_confirmation %><br />
+                  <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+                </div>
+              
+                <div class="actions">
+                  <%= f.submit "Sign up", class:"btn btn-outline-success", style:"margin-top:5px" %>
+                </div>
+              <% end %>
+              </div>
+          </div>
+      </div>
   </div>
-
-  <div class="field">
-    <%= f.label :Province %><br />
-    <%= f.collection_select :province_id, Province.all, :id, :shortname, include_blank: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+</div>
 
 <%= render "members/shared/links" %>
