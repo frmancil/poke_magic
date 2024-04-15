@@ -1,4 +1,8 @@
-<h1>Products</h1>
+<div class="container">
+
+<div class="pagetitle">
+    <h1 class="display-3">Products</h1>
+</div>
 
 <%= form_tag(search_path, :method => "get") do %>
     <div class="input-group container-lg searchbar">
@@ -14,7 +18,7 @@
 <% @items.each do |item| %>
     <div class="container text-center products-wrap">
         <div class="row products-content">
-                <div class="col-sm-3" style="padding:40px;">
+                <div class="col-sm-3 productdetails">
                     <div class="row">
                         <div class="col-sm-2">
                             <%= link_to item.name, item %>
@@ -30,5 +34,6 @@
         </div>
     </div>
 <% end %>
+<div>
 
 <%= paginate @items %>
