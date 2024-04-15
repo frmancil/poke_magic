@@ -10,10 +10,10 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
   </head>
 
-  <body>
+  <body class="background">
     <%= render "layouts/navbar" %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <p class="notice" style="font-weight: bolder; text-align:center"><%= notice %></p>
+    <p class="alert" style="font-weight: bolder; text-align:center"><%= alert %></p>
     <%= yield %>
   </body>
 </html>

@@ -1,18 +1,29 @@
-<h1><%= @item.name %></h1>
+<div class="container">
+    <div class="pagetitle">
+        <h1 class="display-3"><%= @item.name %></h1>
+        <%= link_to "Back", "/", style:"color:white" %>
+    </div>
 
-<%= link_to "Back", "/" %>
+    <div class="container text-center products-wrap">
+        <div class="row products-content">
+            <div class="col-sm-3 productdetails">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <p><%= @item.item_type.name %></p>
+                        <p>Price: <%= @item.price %></p>
+                        <p>Stock: <%= @item.stock %></p>
+                        <%= form_with(url: cart_add_path) do |f| %>
+                            <%= f.hidden_field :id, value: @item.id %>
+                            <%= f.number_field :quantity, value: 0, max:@item.stock, min:1, class: 'searchbar' %>
+                            <%= f.submit "Add to cart", class:"btn btn-outline-success", style:"margin-top:5px" %>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-9">
+                <%= image_tag @item.image %>
+            </div>
+        </div>
+   </div> 
+</div>
 
-
-<%= image_tag @item.image %>
-
-<p>Product: <%= @item.item_type.name %></p>
-<p>Price: <%= @item.price %></p>
-<p>Stock: <%= @item.stock %></p>
-<p>Rarity: <%= @item.rarity.name %></p>
-<%= form_with(url: cart_add_path) do |f| %>
-    <%= f.hidden_field :id, value: @item.id %>
-    <%= f.number_field :quantity, value: 0, min:1 %>
-    <%= f.submit "Add to cart" %>
-<% end %>
-
-<p><%= button_to 'add to cart', add_to_cart_path(@item.id), data: { turbo_method: "post" } %></p>

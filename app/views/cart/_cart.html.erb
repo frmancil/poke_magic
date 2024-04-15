@@ -1,9 +1,33 @@
 <%= turbo_frame_tag "cart" do %>
-    <h1>Cart</h1>
-    <% if @cart.cart_items.count > 0 %>
-        <%= render "cart/cart_item" %>
-        <p>Cart Total: <%= @cart.total %></p>
-    <% else %>
-        <p>Cart is empty</p>
-    <% end %>
+    <div class="container">
+        <div class="pagetitle">
+            <h1 class="display-3">Cart</h1>
+        </div>
+        <% if @cart.cart_items.count > 0 %>
+            <%= render "cart/cart_item" %>
+            <div class="container text-center">
+            <div class="row">
+                <div class="col-sm-12 productdetails">
+                    <div class="row">
+                        <div class="col-sm-10">
+                            <p>Cart Total: <%= @cart.total %></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% else %>
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-sm-12 productdetails">
+                    <div class="row">
+                        <div class="col-sm-10">
+                            <p>Cart is empty</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% end %>
+    </div>
 <% end %>
