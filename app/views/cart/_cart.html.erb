@@ -3,8 +3,29 @@
         <div class="pagetitle">
             <h1 class="display-3">Cart</h1>
         </div>
+        <% if member_signed_in? %>
+          These are the rate taxes for youe zone <%=current_member.province.shortname%>, <%= current_member.username %>
+          <% total = @cart.total%>
+          <p>Cart Total: <%= @cart.total %></p>
+              <% if current_member.province.GST > 0 %>
+                  <p><%=current_member.province.GST %></p>
+                  <% total = total + (total * (current_member.province.GST / 100)) %>
+              <% end %>
+              <% if current_member.province.PST > 0 %>
+                  <p><%=current_member.province.PST %></p>
+                  <% total = total + (total * (current_member.province.PST / 100)) %>
+              <% end %>
+              <% if current_member.province.HST > 0 %>
+                  <p><%=current_member.province.HST %></p>
+                  <% total = total + (total * (current_member.province.HST / 100)) %>
+              <% end %>
+        <% end %>
         <% if @cart.cart_items.count > 0 %>
             <%= render "cart/cart_item" %>
+            <p>Cart Total after taxes: <%= number_with_precision(total, precision: 2) %></p>
+        <% else %>
+            <p>Cart is empty</p>
+        <% end %>
             <div class="container text-center">
             <div class="row">
                 <div class="col-sm-12 productdetails">
@@ -30,4 +51,3 @@
         </div>
         <% end %>
     </div>
-<% end %>
