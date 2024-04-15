@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
     before_action :set_render_cart
-    before_action :initialize_session
     before_action :initialize_cart
     before_action :load_session_cart
 
@@ -22,10 +21,6 @@ class ApplicationController < ActionController::Base
 
     def load_session_cart
         @session_cart = Item.find(session[:cart])
-    end
-
-    def initialize_session
-        session[:cart] ||= []
     end
 
     def initialize_cart
