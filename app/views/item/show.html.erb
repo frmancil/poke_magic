@@ -8,20 +8,20 @@
         <div class="row products-content">
             <div class="col-sm-3 productdetails">
                 <div class="row">
-                    <div class="col-sm-2">
+                    <div class="col-sm-3">
                         <p><%= @item.item_type.name %></p>
                         <p>Price: <%= @item.price %></p>
                         <p>Stock: <%= @item.stock %></p>
                         <p>Rarity: <%= @item.rarity.name %></p>
                          <% if member_signed_in? %>
-                            <p>Add products to your shopping cart, <%= current_member.username %></p>
+                            <p>Add to your cart, <%= current_member.username %></p>
                             <%= form_with(url: cart_add_path) do |f| %>
                                 <%= f.hidden_field :id, value: @item.id %>
                                 <%= f.number_field :quantity, value: 0, max:@item.stock, min:1, class: 'searchbar' %>
                                 <%= f.submit "Add to cart", class:"btn btn-outline-success", style:"margin-top:5px" %>
                            <% end %>
                         <% else %>
-                              <p>Sign up if you want to order a product</p>
+                              <p>Sign up to order</p>
                         <% end %>
                     </div>
                 </div>

@@ -26,7 +26,7 @@
                                   <% end %>
                           <% end %>
                             <%= render "cart/cart_item" %>
-                            <p>Cart Total: <%= @cart.total %></p>
+                            <p style="padding-top:5%;">Cart Total: <%= @cart.total %></p>
                             <p>Cart Total after taxes: <%= number_with_precision(total, precision: 2) %></p>
                             <%= link_to "Checkout", order_path %>
                             </div>

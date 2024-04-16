@@ -1,7 +1,27 @@
-<%= link_to "Back", "/" %>
-</br>
+<div class="container">
+
+<div class="pagetitle">
+    <h1 class="display-3">Products</h1>
+    <%= link_to "Back", "/", style:"color:white" %>
+</div>
 
 <% @results.each do |item| %>
-    <%= link_to item.name, item %>
-    <%= image_tag item.image %><br>
+    <div class="container text-center products-wrap">
+        <div class="row products-content">
+                <div class="col-sm-3 productdetails">
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <%= link_to item.name, item %>
+                            <p><%= item.item_type.name %></p>
+                            <p>Price: <%= item.price %></p>
+                            <p>Stock: <%= item.stock %></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-9">
+                    <%= image_tag item.image %>
+                </div>
+        </div>
+    </div>
 <% end %>
+</div>
