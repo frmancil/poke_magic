@@ -23,6 +23,9 @@ class OrderController < ApplicationController
             new_order.item = Item.find_by(id: cart_item.item.id)
             new_order.order_status = OrderStatus.find_by(id: 1)
             new_order.order_number = order_number
+            new_order.GST = current_member.province.GST
+            new_order.PST = current_member.province.PST
+            new_order.HST = current_member.province.HST
             new_order.save
             puts new_order.save!
         end
