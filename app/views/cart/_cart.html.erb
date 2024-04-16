@@ -10,7 +10,7 @@
                         <div class="row">
                             <div class="col-sm-10">
                             <% if member_signed_in? %>
-                            These are the rate taxes for your zone <%= current_member.province.shortname %>, <%= current_member.username %>
+                            These are the rate taxes for your Province: <%= current_member.province.shortname %>, <%= current_member.username %>
                             <% total = @cart.total %>
                                   <% if current_member.province.GST > 0 %>
                                       <p>GST: <%=current_member.province.GST %></p>
@@ -28,6 +28,7 @@
                             <%= render "cart/cart_item" %>
                             <p>Cart Total: <%= @cart.total %></p>
                             <p>Cart Total after taxes: <%= number_with_precision(total, precision: 2) %></p>
+                            <%= link_to "Checkout", order_path %>
                             </div>
                         </div>
                     </div>

@@ -1,0 +1,48 @@
+<div class="container">
+
+<div class="pagetitle">
+    <h1 class="display-3">Checkout</h1>
+</div>
+<div class="container text-center">
+                <div class="row">
+                    <div class="col-sm-12 productdetails">
+                    <div class="row">
+                    <div class="col-sm-8" style="padding-left:30%; padding-bottom:10%;">
+                        Your order has been saved succesfully
+                    </div>
+                </div>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p><%= @member_order.username %>'s order</p>
+                                <% total = @cart.total %>
+                                    <% if current_member.province.GST > 0 %>
+                                        <p>GST: <%=current_member.province.GST %></p>
+                                        <% total = total + (total * (current_member.province.GST / 100)) %>
+                                    <% end %>
+                                    <% if current_member.province.PST > 0 %>
+                                        <p>PST: <%=current_member.province.PST %></p>
+                                        <% total = total + (total * (current_member.province.PST / 100)) %>
+                                    <% end %>
+                                    <% if current_member.province.HST > 0 %>
+                                        <p>HST: <%=current_member.province.HST %></p>
+                                        <% total = total + (total * (current_member.province.HST / 100)) %>
+                                    <% end %>
+                            </div>
+                            <div class="col-sm-5">
+                                <% @cart.cart_items.each do |cart| %>
+                                    <p><%= cart.item.item_type.name %>: <%= cart.item.name %><p>
+                                    <p>Rarity: <%= cart.item.rarity.name %><p>
+                                    <p>Quantity: <%= cart.quantity %><p>
+                                    <p>Price: <%= cart.item.price %><p>
+                                    <hr>
+                                <% end %>
+                            </div>
+                            <div class="col-sm-3" style="background-color: #031633; color:white; height:20%;">
+                                <p>Cart Total: <%= @cart.total %></p>
+                                <p>Cart Total after taxes: <%= number_with_precision(total, precision: 2) %></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</div>

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   get '/cart', to: 'cart#show'
+  get '/order', to: 'order#show'
   post 'cart/add'
   post 'cart/remove'
   get '/', to: 'item#index'
