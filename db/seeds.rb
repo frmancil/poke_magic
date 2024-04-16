@@ -41,9 +41,6 @@ end
 #    new_rarity.save
 #end
 
-#new_member = Member.new(full_name:'test', username:'test', password:'test', address:'test', store_credit_available: 0)
-#new_member.save
-
 #pokemon_cards = fetch("https://api.pokemontcg.io/v2/cards?pageSize=100")
 
 #pokemon_cards['data'].each do |pokemon|

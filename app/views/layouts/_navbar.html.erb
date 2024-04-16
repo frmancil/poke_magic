@@ -8,6 +8,7 @@
                        <p class="navbar-text"> (<%= @cart.cart_items.count %>) </p>
                         <% if member_signed_in? %>
                             <span class="navbar-text" style="margin-right:5px;">Welcome Home, <%= current_member.username %></span>
+                            <li class="nav-item"><%= link_to 'Show History', orders_path, class:"nav-link" %></li>
                             <li class="nav-item"><%= button_to 'Sign out', destroy_member_session_path, method: :delete, class:"btn btn-outline-success" %></li>
                         <% else %>
                         <li class="nav-item"><%= link_to 'Sign in', new_member_session_path, class:"nav-link" %></li>

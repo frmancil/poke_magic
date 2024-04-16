@@ -14,7 +14,7 @@
                         <div class="row">
                             <div class="col-sm-3">
                                 <p><%= @member_order.username %>'s order</p>
-                                <% total = @cart.total %>
+                                <% total = @order_cart.total %>
                                     <% if current_member.province.GST > 0 %>
                                         <p>GST: <%=current_member.province.GST %></p>
                                         <% total = total + (total * (current_member.province.GST / 100)) %>
@@ -29,7 +29,7 @@
                                     <% end %>
                             </div>
                             <div class="col-sm-5">
-                                <% @cart.cart_items.each do |cart| %>
+                                <% @order_cart.cart_items.each do |cart| %>
                                     <p><%= cart.item.item_type.name %>: <%= cart.item.name %><p>
                                     <p>Rarity: <%= cart.item.rarity.name %><p>
                                     <p>Quantity: <%= cart.quantity %><p>
@@ -38,7 +38,7 @@
                                 <% end %>
                             </div>
                             <div class="col-sm-3" style="background-color: #031633; color:white; height:20%;">
-                                <p>Cart Total: <%= @cart.total %></p>
+                                <p>Cart Total: <%= @order_cart.total %></p>
                                 <p>Cart Total after taxes: <%= number_with_precision(total, precision: 2) %></p>
                             </div>
                         </div>

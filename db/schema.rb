@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_15_215036) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_16_024921) do
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
@@ -148,8 +148,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_15_215036) do
     t.datetime "updated_at", null: false
     t.integer "member_id", null: false
     t.integer "item_id", null: false
+    t.integer "order_status_id", null: false
     t.index ["item_id"], name: "index_orders_on_item_id"
     t.index ["member_id"], name: "index_orders_on_member_id"
+    t.index ["order_status_id"], name: "index_orders_on_order_status_id"
   end
 
   create_table "provinces", force: :cascade do |t|
@@ -186,4 +188,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_15_215036) do
   add_foreign_key "members", "provinces"
   add_foreign_key "orders", "items"
   add_foreign_key "orders", "members"
+  add_foreign_key "orders", "order_statuses"
 end
