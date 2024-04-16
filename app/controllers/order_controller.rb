@@ -30,7 +30,7 @@ class OrderController < ApplicationController
             new_order.total_with_taxes = @cart.total_after_taxes
             new_order.save
             puts new_order.save!
-            @order = new_order
+            @order = order_number
         end
     end
 
