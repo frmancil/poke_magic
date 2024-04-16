@@ -1,5 +1,4 @@
 <%= turbo_frame_tag "cart" do %>
-    <meta name="turbo-visit-control" content="reload">
     <div class="container">
         <div class="pagetitle">
             <h1 class="display-3">Cart</h1>
@@ -25,7 +24,7 @@
                             <%= render "cart/cart_item" %>
                             <p style="padding-top:5%;">Cart Total: <%= @cart.total %></p>
                             <p>Cart Total after taxes: <%= @cart.total_after_taxes %></p>
-                            <%= link_to "Checkout", order_path %>
+                            <%= link_to "Checkout", order_path, data: {turbo_frame: "_top"} %>
                             </div>
                         </div>
                     </div>
