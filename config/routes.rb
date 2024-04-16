@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: 'item#index'
   devise_for :members, :controllers => { registrations: 'member/registrations' }
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -9,6 +10,7 @@ Rails.application.routes.draw do
   get '/orders', to: 'order#index'
   post 'cart/add'
   post 'cart/remove'
+  post 'checkout/create', to: 'checkout#create'
   get '/', to: 'item#index'
   get '/search', to: 'item#search'
   get '/item_types', to: 'item_types#index'
@@ -23,6 +25,7 @@ Rails.application.routes.draw do
   resources :item_types
   resources :game_type
   resources :rarity
+  resources :checkout, only: [:create]
 
   # Defines the root path route ("/")
   # root "posts#index"
