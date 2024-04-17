@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   resources :game_type
   resources :rarity
   resources :checkout, only: [:create]
+  resources :webhooks, only: [:create]
 
   # Defines the root path route ("/")
   # root "posts#index"
