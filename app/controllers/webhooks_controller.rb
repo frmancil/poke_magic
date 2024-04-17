@@ -26,9 +26,11 @@ class WebhooksController < ApplicationController
       case event.type
       when 'checkout.session.completed'
         session = event.data.object
-        order = Order.find_by(total_with_taxes: session.amount_total)
-        order_status = OrderStatus.find_by(id: 2)
-        order.order_status = 2
+        puts session
+        puts session.amount_total
+        order = Order.find_by(total_with_taxes: ((session.amount_total)/100))
+        new_order_status = OrderStatus.find_by(id: 2)
+        order.order_status = new_order_status
         order.save
       end
   
