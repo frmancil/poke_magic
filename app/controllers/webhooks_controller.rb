@@ -26,12 +26,10 @@ class WebhooksController < ApplicationController
       case event.type
       when 'checkout.session.completed'
         session = event.data.object
-        session_with_expand = Stripe::Checkout::Session.retrieve({ id: session.id, expand: ["line_items"]})
-        session_with_expand.line_items.data.each do |line_item|
-          order = Order.find_by(order_number: line_item.price_data.product_data.name)
-          order_status = OrderStatus.find_by(id: 2)
-          order.order_status = 2
-          order.save
+        order = Order.find_by(total_with_taxes: session.amount_total)
+        order_status = OrderStatus.find_by(id: 2)
+        order.order_status = 2
+        order.save
         end
       end
   

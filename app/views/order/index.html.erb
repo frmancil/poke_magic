@@ -14,8 +14,8 @@
                                         <p><%= order.item.name %><p>
                                         <p>Rarity: <%= order.item.rarity.name %><p>
                                         <p>Quantity: <%= order.quantity %><p>
-                                        <p>Price: <%= order.item.price %><p>
-                                        <p>Price: <%= order.order_status.status %><p>
+                                        <p>Price: <%= order.item.price_after_taxes %><p>
+                                        <p>Order Status: <%= order.order_status.status %><p>
                                         <p>Date: <%= order.created_at %><p>
                                         <hr>
                                     <% end %>
