@@ -30,7 +30,6 @@ class WebhooksController < ApplicationController
         order_status = OrderStatus.find_by(id: 2)
         order.order_status = 2
         order.save
-        end
       end
   
       render json: { message: 'success' }
