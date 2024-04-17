@@ -26,12 +26,15 @@ class OrderController < ApplicationController
             new_order.GST = current_member.province.GST
             new_order.PST = current_member.province.PST
             new_order.HST = current_member.province.HST
+            new_order.total = @cart.total
+            new_order.total_with_taxes = @cart.total_after_taxes
             new_order.save
             puts new_order.save!
+            @order = order_number
         end
     end
 
     def order_params
-        params_require(:order).permit(:name, :stock, :price, :rarity, :item_type, :game_type)
+        params_require(:order).permit(:order_number, :is_completed, :price, :quantity, :payment_link)
     end
 end

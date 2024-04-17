@@ -92,3 +92,7 @@ gem 'kaminari'
 gem 'nokogiri'
 
 gem 'stripe'
+
+gem 'pg'
+
+gem 'rack-cors'

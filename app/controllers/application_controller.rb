@@ -1,6 +1,11 @@
 class ApplicationController < ActionController::Base
     before_action :set_render_cart
     before_action :initialize_cart
+    before_action :set_current_member
+
+    def set_current_member
+      Member.current = current_member
+    end
 
     def set_render_cart
         @render_cart = true

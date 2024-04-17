@@ -39,7 +39,8 @@
                             </div>
                             <div class="col-sm-3" style="background-color: #031633; color:white; height:20%;">
                                 <p>Cart Total: <%= @order_cart.total %></p>
-                                <p>Cart Total after taxes: <%= number_with_precision(total, precision: 2) %></p>
+                                <p>Cart Total after taxes: <%= @order_cart.total_after_taxes %></p>
+                                <%= button_to "Pay Now", checkout_create_path, params: {order_number: @order}, data: {turbo: false} %>
                             </div>
                         </div>
                     </div>
