@@ -28,7 +28,12 @@ class WebhooksController < ApplicationController
         session = event.data.object
         puts session
         puts session.amount_total
-        order = Order.find_by(total_with_taxes: ((session.amount_total)/100))
+        puts ((session.amount_total)/100).to_f
+        Order.all.each do |order|
+            puts order.total_with_taxes
+        end
+        amount = ((session.amount_total)/100).to_f
+        order = Order.find_by(total_with_taxes: amount)
         new_order_status = OrderStatus.find_by(id: 2)
         order.order_status = new_order_status
         order.save
