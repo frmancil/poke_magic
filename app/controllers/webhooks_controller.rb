@@ -29,10 +29,11 @@ class WebhooksController < ApplicationController
         puts session
         puts session.amount_total
         puts ((session.amount_total)/100).to_f
+        puts ((session.amount_total)/100)
         Order.all.each do |order|
             puts order.total_with_taxes
         end
-        amount = ((session.amount_total)/100).to_f
+        amount = ((session.amount_total)/100)
         order = Order.find_by(total_with_taxes: amount)
         new_order_status = OrderStatus.find_by(id: 2)
         order.order_status = new_order_status
