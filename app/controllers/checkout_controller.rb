@@ -5,6 +5,9 @@ class CheckoutController < ApplicationController
         order = Order.find_by(order_number: params[:order_number])
         @session = Stripe::Checkout::Session.create({
             payment_method_types: ['card'],
+            metadata: {
+                order_id: order.order_number,
+            },
             line_items: [{
                 price_data: {
                     currency: "cad",
